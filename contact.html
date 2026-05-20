@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — SSaI™</title>
+<meta name="description" content="DM the founder. Or fill out this form, which goes to the same place." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">S</span><span>SSaI<sup>™</sup></span></a>
+    <nav class="nav-links">
+      <a href="index.html#tenets">Tenets</a>
+      <a href="index.html#math">Mathematics</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero hero-grid">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span>›</span>Contact</div>
+    <span class="eyebrow"><span class="dot"></span> Get in touch</span>
+    <h1>This form is, in fact,<br/><span style="color:var(--green-700)">a Google Sheet.</span></h1>
+    <p class="sub">All submissions append to row N+1 of <code>Inbound_v3</code>. Naomi reads it every morning over coffee. Response time: 1 business day, in spirit.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="split">
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('.ok').style.display='block'; this.querySelector('button[type=submit]').textContent='Appended to row 4,837 ✓'; this.querySelector('button[type=submit]').disabled=true;">
+        <h3 style="margin:0 0 8px;">Send us a message</h3>
+        <p style="margin:0 0 24px; color:var(--ink-500); font-size:14px;">Required fields are required because we will name a column after them.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" type="text" placeholder="Naomi K." required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" type="text" placeholder="Acme, Inc." />
+          </div>
+          <div class="field">
+            <label for="size">Company size</label>
+            <select id="size">
+              <option>Just me (and one sheet)</option>
+              <option>2–10 (multiple tabs)</option>
+              <option>11–50 (one shared workbook)</option>
+              <option>51–200 (several workbooks)</option>
+              <option>200+ (we are migrating to Postgres)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="topic">What's this about?</label>
+          <select id="topic">
+            <option>Sales — I want to give you money</option>
+            <option>Support — my sheet is on fire</option>
+            <option>Partnerships — let's IMPORTRANGE each other</option>
+            <option>Press — I'm writing a piece and need a quote</option>
+            <option>Careers — I edit responsibly</option>
+            <option>Other — see message below</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" placeholder="Tell us about the spreadsheet you'd rather not admit your business runs on."></textarea>
+          <div class="hint">Markdown is not supported. Conditional formatting is.</div>
+        </div>
+
+        <div class="field checkbox">
+          <input type="checkbox" id="ok" checked />
+          <label for="ok">I'm fine with my message becoming row 4,838 of a public-ish sheet.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">Append to sheet →</button>
+        <div class="ok" style="display:none; margin-top:14px; padding:10px 14px; background:var(--green-50); border:1px solid rgba(25,135,84,.3); border-radius:8px; color:var(--green-800); font-size:14px;">
+          ✓ Row inserted. Naomi will see this whenever she next opens the tab.
+        </div>
+      </form>
+
+      <div>
+        <div class="panel" style="margin-bottom:16px;">
+          <h3>Or just DM the founder</h3>
+          <p class="lede">Naomi has comment notifications enabled. Her response time is faster on the sheet than on email. This is not a joke.</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="padding:10px 0; border-top: 1px solid var(--rule);">
+              <strong>Founder</strong><br/>
+              <a href="#">@naomi on the sheet</a> &nbsp;·&nbsp; <a href="#">@nkessler on X</a>
+            </li>
+            <li style="padding:10px 0; border-top: 1px solid var(--rule);">
+              <strong>Press</strong><br/>
+              <a href="mailto:press@ssai.example">press@ssai.example</a>
+            </li>
+            <li style="padding:10px 0; border-top: 1px solid var(--rule);">
+              <strong>Support</strong><br/>
+              Comment on the relevant cell. Tag <code>@ops</code>.
+            </li>
+            <li style="padding:10px 0; border-top: 1px solid var(--rule);">
+              <strong>Security</strong><br/>
+              <a href="mailto:security@ssai.example">security@ssai.example</a> — PGP key is in tab <code>keys_v2</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Office hours</h3>
+          <p class="lede">The hours during which our main sheet is statistically most likely to have an editor present.</p>
+          <table class="sheet" role="presentation" style="margin:0;">
+            <thead><tr><th>day</th><th>active hours (PT)</th><th>responsiveness</th></tr></thead>
+            <tbody>
+              <tr><td>Mon–Thu</td><td>9 AM – 6 PM</td><td><span class="badge ok">high</span></td></tr>
+              <tr><td>Fri</td><td>9 AM – 2 PM</td><td><span class="badge warn">medium</span></td></tr>
+              <tr><td>Sat</td><td>10 AM – 11 AM</td><td><span class="badge warn">someone's online</span></td></tr>
+              <tr><td>Sun</td><td>—</td><td><span class="badge bad">no editors detected</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:white;"><span class="brand-mark">S</span><span style="color:white;">SSaI<sup style="color:#8b97a8;">™</sup></span></div>
+        <p style="max-width: 360px; margin-top: 12px; font-size: 14px;">Democratizing Enterprise Infrastructure Through Collaborative Cells™. Built for speed. Held together by hope.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="index.html#tenets">Tenets</a></li><li><a href="index.html#math">Mathematics</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="get-started.html">Get started</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="whitepaper.html">Whitepaper (1 tab)</a></li><li><a href="index.html#journey">Migration journey</a></li><li><a href="cell-driven-design.html">Cell-Driven Design</a></li><li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers (volunteers)</a></li><li><a href="press.html">Press</a></li><li><a href="contact.html">Contact (DM the founder)</a></li></ul></div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 SSaI Inc. All cells reserved.</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">SSaI is a satirical concept. Any resemblance to your current production system is coincidental, sincere, and probably accurate.</div>
+
+</body>
+</html>

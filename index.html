@@ -8,354 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --green-900: #0f5132;
-    --green-800: #146c43;
-    --green-700: #198754;
-    --green-600: #1e9e64;
-    --green-100: #e9f5ef;
-    --green-50:  #f3faf6;
-    --ink-900: #0b1220;
-    --ink-700: #1f2937;
-    --ink-500: #4b5563;
-    --ink-300: #9aa3b2;
-    --ink-100: #e5e7eb;
-    --paper:   #fbfaf6;
-    --paper-2: #f5f3ec;
-    --rule:    #e4e1d6;
-    --warn:    #b45309;
-    --red:     #b42318;
-    --shadow:  0 1px 2px rgba(11,18,32,.04), 0 8px 24px -12px rgba(11,18,32,.12);
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: var(--ink-900);
-    background: var(--paper);
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-  a { color: var(--green-800); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  /* ---------- nav ---------- */
-  .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(251,250,246,.85);
-    backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; font-size: 22px; color: var(--green-800); }
-  .brand sup { font-size: 10px; color: var(--ink-500); font-weight: 600; }
-  .brand-mark {
-    width: 28px; height: 28px; border-radius: 6px;
-    background: var(--green-700);
-    display: inline-grid; place-items: center;
-    color: white; font-weight: 800; font-size: 14px;
-    box-shadow: inset 0 -2px 0 rgba(0,0,0,.18);
-  }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { color: var(--ink-700); font-weight: 500; font-size: 14px; }
-  .nav-links a:hover { color: var(--green-800); text-decoration: none; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 16px; border-radius: 8px;
-    font-weight: 600; font-size: 14px;
-    border: 1px solid transparent; cursor: pointer;
-    transition: transform .08s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .btn:hover { text-decoration: none; }
-  .btn-primary { background: var(--green-700); color: white; box-shadow: var(--shadow); }
-  .btn-primary:hover { background: var(--green-800); transform: translateY(-1px); }
-  .btn-ghost { background: transparent; color: var(--ink-700); border-color: var(--rule); }
-  .btn-ghost:hover { border-color: var(--ink-300); color: var(--ink-900); }
-  @media (max-width: 760px) { .nav-links a:not(.btn) { display: none; } }
-
-  /* ---------- hero ---------- */
-  .hero { position: relative; padding: 88px 0 64px; overflow: hidden; }
-  .hero-grid::before {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(25,135,84,.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(25,135,84,.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 40%, transparent 80%);
-    pointer-events: none;
-  }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 12px; border-radius: 999px;
-    background: var(--green-100); color: var(--green-800);
-    font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-    border: 1px solid rgba(25,135,84,.18);
-  }
-  .eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--green-700); box-shadow: 0 0 0 4px rgba(25,135,84,.18); }
-  h1.headline {
-    font-size: clamp(40px, 7vw, 76px);
-    line-height: 1.02; letter-spacing: -0.035em;
-    margin: 20px 0 16px; font-weight: 800;
-  }
-  h1.headline .accent { color: var(--green-700); }
-  .sub {
-    font-size: clamp(17px, 1.6vw, 20px);
-    color: var(--ink-500); max-width: 680px;
-  }
-  .hero-cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-  .hero-meta {
-    margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap;
-    color: var(--ink-500); font-size: 13px;
-  }
-  .hero-meta span::before { content: "✓ "; color: var(--green-700); font-weight: 700; }
-
-  /* ---------- mock spreadsheet ---------- */
-  .mock {
-    margin-top: 56px;
-    background: white; border: 1px solid var(--rule); border-radius: 14px;
-    box-shadow: var(--shadow); overflow: hidden;
-  }
-  .mock-bar {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 16px; border-bottom: 1px solid var(--rule);
-    background: var(--paper-2);
-    font-size: 13px; color: var(--ink-700);
-  }
-  .mock-bar .dots { display: flex; gap: 6px; }
-  .mock-bar .dots i { width: 10px; height: 10px; border-radius: 999px; background: #e6e3d8; display: inline-block; }
-  .mock-bar .dots i:nth-child(1) { background: #ed6a5e; }
-  .mock-bar .dots i:nth-child(2) { background: #f5be4f; }
-  .mock-bar .dots i:nth-child(3) { background: #61c454; }
-  .mock-bar .file { font-weight: 600; }
-  .mock-bar .crumb { color: var(--ink-500); font-size: 12px; }
-  .mock-bar .share { margin-left: auto; background: var(--green-700); color: white; padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-  table.sheet { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; }
-  table.sheet th, table.sheet td {
-    border: 1px solid var(--rule); padding: 8px 12px; text-align: left; background: white;
-  }
-  table.sheet th {
-    background: var(--paper-2); color: var(--ink-500); font-weight: 600; font-size: 12px;
-    letter-spacing: .04em; text-transform: uppercase;
-  }
-  table.sheet th.row-h, table.sheet td.row-h {
-    width: 36px; text-align: center; color: var(--ink-500); background: var(--paper-2);
-  }
-  td .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
-  td .badge.ok { background: var(--green-100); color: var(--green-800); }
-  td .badge.warn { background: #fff4e0; color: var(--warn); }
-  td .badge.bad { background: #fde8e6; color: var(--red); }
-  .mock-tabs { display: flex; gap: 4px; padding: 8px 12px; border-top: 1px solid var(--rule); background: var(--paper-2); }
-  .mock-tabs button {
-    border: 1px solid transparent; background: transparent;
-    padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--ink-500); cursor: pointer;
-  }
-  .mock-tabs button.active { background: white; color: var(--green-800); border-color: var(--rule); }
-  .sticky-note {
-    position: absolute; right: 32px; bottom: -28px;
-    transform: rotate(4deg);
-    background: #fff5a8; padding: 14px 18px;
-    font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.4;
-    box-shadow: 0 8px 20px -4px rgba(0,0,0,.18);
-    max-width: 220px;
-  }
-  .sticky-note u { text-decoration: underline wavy var(--green-700); }
-  @media (max-width: 760px) { .sticky-note { display: none; } }
-
-  /* ---------- section primitives ---------- */
-  section { padding: 96px 0; position: relative; }
-  .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
-  .kicker {
-    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--green-800);
-  }
-  .section-head h2 {
-    font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em;
-    margin: 10px 0 12px; line-height: 1.1; font-weight: 800;
-  }
-  .section-head p { color: var(--ink-500); font-size: 17px; }
-
-  /* ---------- definition strip ---------- */
-  .def {
-    background: var(--ink-900); color: #f3f4f6; padding: 56px 0;
-  }
-  .def-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
-  @media (max-width: 860px) { .def-grid { grid-template-columns: 1fr; } }
-  .def h2 { font-size: clamp(28px, 3vw, 36px); letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.15; }
-  .def h2 em { color: var(--green-600); font-style: normal; }
-  .def p { color: #c9d3df; font-size: 17px; margin: 0; }
-  .def .quote {
-    border-left: 3px solid var(--green-600); padding: 12px 18px;
-    font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #cfe9da; background: rgba(25,135,84,.08); border-radius: 0 8px 8px 0;
-  }
-
-  /* ---------- tenets ---------- */
-  .tenets {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-  }
-  @media (max-width: 1100px) { .tenets { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 620px) { .tenets { grid-template-columns: 1fr; } }
-  .tenet {
-    background: white; border: 1px solid var(--rule); border-radius: 12px;
-    padding: 24px; box-shadow: var(--shadow);
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    display: flex; flex-direction: column;
-  }
-  .tenet:hover { transform: translateY(-2px); border-color: rgba(25,135,84,.35); }
-  .tenet .icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    background: var(--green-100); color: var(--green-800);
-    display: grid; place-items: center; margin-bottom: 16px;
-    font-size: 18px; font-weight: 800;
-  }
-  .tenet h3 { font-size: 16px; margin: 0 0 8px; letter-spacing: -0.01em; }
-  .tenet p { margin: 0; color: var(--ink-500); font-size: 14px; }
-  .tenet .punch {
-    margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--rule);
-    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-700);
-  }
-
-  /* ---------- math + journey ---------- */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-  .panel {
-    background: white; border: 1px solid var(--rule); border-radius: 14px;
-    padding: 32px; box-shadow: var(--shadow);
-  }
-  .panel h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -0.015em; }
-  .panel .lede { color: var(--ink-500); font-size: 14px; margin: 0 0 24px; }
-
-  .equation {
-    font-family: 'JetBrains Mono', monospace; font-size: 22px; margin: 12px 0 20px;
-    color: var(--ink-900);
-  }
-  .equation sup { color: var(--red); }
-  .chart {
-    position: relative; height: 200px; border-left: 2px solid var(--ink-300); border-bottom: 2px solid var(--ink-300);
-    padding: 8px; overflow: hidden;
-  }
-  .chart svg { width: 100%; height: 100%; }
-  .chart .axis-x { position: absolute; right: 10px; bottom: -22px; font-size: 11px; color: var(--ink-500); letter-spacing: .12em; }
-  .chart .axis-y { position: absolute; top: -22px; left: -8px; font-size: 11px; color: var(--ink-500); letter-spacing: .12em; }
-  .annotation {
-    position: absolute; right: 12px; top: 16px;
-    background: white; border: 1px solid var(--red); color: var(--red);
-    padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,.08);
-  }
-
-  .journey { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
-  .stage { padding: 18px; border-radius: 10px; background: var(--green-50); border: 1px solid rgba(25,135,84,.18); }
-  .stage .num { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--green-800); font-weight: 700; }
-  .stage h4 { margin: 6px 0 6px; font-size: 15px; }
-  .stage p { margin: 0; font-size: 13px; color: var(--ink-500); }
-  .stage.s2 { background: #fff8e6; border-color: #f5d77a; }
-  .stage.s2 .num { color: var(--warn); }
-  .stage.s3 { background: #fde8e6; border-color: #f4a8a0; }
-  .stage.s3 .num { color: var(--red); }
-  .stage.s4 { background: var(--ink-900); border-color: var(--ink-700); }
-  .stage.s4 .num, .stage.s4 h4 { color: white; }
-  .stage.s4 p { color: #c9d3df; }
-  @media (max-width: 720px) { .journey { grid-template-columns: 1fr 1fr; } }
-
-  /* ---------- testimonials ---------- */
-  .testimonials { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-  .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  @media (max-width: 860px) { .tgrid { grid-template-columns: 1fr; } }
-  .quote-card {
-    background: white; border: 1px solid var(--rule); border-radius: 12px; padding: 24px; box-shadow: var(--shadow);
-  }
-  .quote-card blockquote { margin: 0 0 16px; font-size: 16px; line-height: 1.55; color: var(--ink-900); }
-  .quote-card blockquote::before { content: "“"; font-family: serif; font-size: 36px; line-height: 0; color: var(--green-700); margin-right: 4px; vertical-align: -10px; }
-  .who { display: flex; align-items: center; gap: 10px; }
-  .avatar { width: 36px; height: 36px; border-radius: 999px; background: var(--green-700); color: white; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
-  .who .name { font-weight: 600; font-size: 14px; }
-  .who .role { color: var(--ink-500); font-size: 12px; }
-
-  /* ---------- pricing ---------- */
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
-  .price {
-    background: white; border: 1px solid var(--rule); border-radius: 14px;
-    padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column;
-  }
-  .price.featured { border-color: var(--green-700); position: relative; }
-  .price.featured::before {
-    content: "Most chaotic"; position: absolute; top: -12px; right: 20px;
-    background: var(--green-700); color: white; font-size: 11px; font-weight: 700;
-    padding: 4px 10px; border-radius: 999px; letter-spacing: .04em;
-  }
-  .price h3 { margin: 0 0 4px; font-size: 18px; }
-  .price .tag { color: var(--ink-500); font-size: 13px; margin-bottom: 16px; }
-  .price .amount { font-size: 40px; font-weight: 800; letter-spacing: -0.025em; }
-  .price .amount span { font-size: 14px; color: var(--ink-500); font-weight: 500; }
-  .price ul { list-style: none; padding: 0; margin: 16px 0 24px; }
-  .price li { padding: 6px 0; color: var(--ink-700); font-size: 14px; display: flex; gap: 8px; }
-  .price li::before { content: "•"; color: var(--green-700); font-weight: 800; }
-  .price .btn { width: 100%; justify-content: center; margin-top: auto; }
-
-  /* ---------- faq ---------- */
-  .faq-list { max-width: 760px; margin: 0 auto; }
-  details {
-    background: white; border: 1px solid var(--rule); border-radius: 10px;
-    padding: 16px 20px; margin-bottom: 10px;
-  }
-  details[open] { box-shadow: var(--shadow); }
-  summary { cursor: pointer; font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--green-700); font-size: 22px; font-weight: 700; }
-  details[open] summary::after { content: "−"; }
-  details p { color: var(--ink-500); margin: 12px 0 0; font-size: 15px; }
-
-  /* ---------- big cta ---------- */
-  .cta {
-    background: linear-gradient(135deg, var(--green-900), var(--green-700));
-    color: white; border-radius: 18px; padding: 64px; text-align: center;
-    box-shadow: var(--shadow);
-    position: relative; overflow: hidden;
-  }
-  .cta::after {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 36px 36px;
-    pointer-events: none; opacity: .8;
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 75%);
-  }
-  .cta h2 { font-size: clamp(28px, 3.5vw, 40px); margin: 0 0 12px; letter-spacing: -0.02em; }
-  .cta p { color: rgba(255,255,255,.85); margin: 0 0 28px; font-size: 17px; max-width: 600px; margin-inline: auto; }
-  .cta .btn-primary { background: white; color: var(--green-800); }
-  .cta .btn-primary:hover { background: #eef9f1; }
-  .cta .btn-ghost { color: white; border-color: rgba(255,255,255,.4); }
-  .cta .btn-ghost:hover { border-color: white; color: white; }
-
-  /* ---------- footer ---------- */
-  footer {
-    background: var(--ink-900); color: #c9d3df;
-    padding: 48px 0 32px;
-  }
-  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 32px; border-bottom: 1px solid #1f2a3a; }
-  @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
-  footer h5 { color: white; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 14px; }
-  footer ul { list-style: none; padding: 0; margin: 0; }
-  footer li { padding: 4px 0; }
-  footer a { color: #c9d3df; font-size: 14px; }
-  footer a:hover { color: white; }
-  .foot-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-size: 12px; color: #8b97a8; flex-wrap: wrap; gap: 12px; }
-  .disclaim { padding: 16px 0; text-align: center; font-size: 12px; background: #07101f; color: #6b7686; border-top: 1px solid #1f2a3a; }
-</style>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
 <header class="nav">
   <div class="container nav-inner">
-    <a href="#" class="brand">
+    <a href="index.html" class="brand">
       <span class="brand-mark">S</span>
       <span>SSaI<sup>™</sup></span>
     </a>
@@ -364,7 +24,7 @@
       <a href="#math">Mathematics</a>
       <a href="#journey">Journey</a>
       <a href="#pricing">Pricing</a>
-      <a href="#cta" class="btn btn-primary">Get started →</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
     </nav>
   </div>
 </header>
@@ -381,7 +41,7 @@
       SSaI is the strategic use of spreadsheets as the foundational layer for building, operating, and scaling applications and systems. Because a grid can do anything.
     </p>
     <div class="hero-cta">
-      <a href="#cta" class="btn btn-primary">Open a blank sheet →</a>
+      <a href="get-started.html" class="btn btn-primary">Open a blank sheet →</a>
       <a href="#tenets" class="btn btn-ghost">Read the tenets</a>
     </div>
     <div class="hero-meta">
@@ -550,6 +210,7 @@
           <span class="axis-y">PAIN</span>
           <div class="annotation">It works great<br/>until it doesn't.</div>
         </div>
+        <p style="margin-top:24px; color:var(--ink-500); font-size:14px;">Want the rigorous derivation? Read the <a href="whitepaper.html">SSaI whitepaper</a>.</p>
       </div>
 
       <div class="panel" id="journey">
@@ -635,7 +296,7 @@
           <li>"Whoever has the link" auth</li>
           <li>Email support (best effort)</li>
         </ul>
-        <a href="#cta" class="btn btn-ghost">Open blank sheet</a>
+        <a href="get-started.html" class="btn btn-ghost">Open blank sheet</a>
       </div>
 
       <div class="price featured">
@@ -649,7 +310,7 @@
           <li>Color-coded status as observability</li>
           <li>"File → Make a Copy" disaster recovery</li>
         </ul>
-        <a href="#cta" class="btn btn-primary">Start scaling →</a>
+        <a href="get-started.html" class="btn btn-primary">Start scaling →</a>
       </div>
 
       <div class="price">
@@ -662,7 +323,7 @@
           <li>Dedicated Slack channel</li>
           <li>Migration consulting (we'll help you leave)</li>
         </ul>
-        <a href="#cta" class="btn btn-ghost">Talk to sales</a>
+        <a href="contact.html" class="btn btn-ghost">Talk to sales</a>
       </div>
     </div>
   </div>
@@ -707,7 +368,7 @@
       <h2>Stop building infrastructure. Start formatting it.</h2>
       <p>Your stack is one shared link away. No DBA. No DevOps. No migrations. Just rows, columns, and the quiet courage to ship.</p>
       <div class="hero-cta" style="justify-content:center;">
-        <a href="#" class="btn btn-primary">Open a blank sheet →</a>
+        <a href="get-started.html" class="btn btn-primary">Open a blank sheet →</a>
         <a href="#tenets" class="btn btn-ghost">Read the tenets again</a>
       </div>
     </div>
@@ -731,34 +392,34 @@
       <div>
         <h5>Product</h5>
         <ul>
-          <li><a href="#tenets">Tenets</a></li>
-          <li><a href="#math">Mathematics</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#cta">Get started</a></li>
+          <li><a href="index.html#tenets">Tenets</a></li>
+          <li><a href="index.html#math">Mathematics</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="get-started.html">Get started</a></li>
         </ul>
       </div>
       <div>
         <h5>Resources</h5>
         <ul>
-          <li><a href="#">Whitepaper (1 tab)</a></li>
-          <li><a href="#">Migration journey</a></li>
-          <li><a href="#">Cell-Driven Design</a></li>
-          <li><a href="#">Conditional formatting as code</a></li>
+          <li><a href="whitepaper.html">Whitepaper (1 tab)</a></li>
+          <li><a href="index.html#journey">Migration journey</a></li>
+          <li><a href="cell-driven-design.html">Cell-Driven Design</a></li>
+          <li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li>
         </ul>
       </div>
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Careers (volunteers)</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Contact (DM the founder)</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers (volunteers)</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="contact.html">Contact (DM the founder)</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-meta">
       <span>© 2026 SSaI Inc. All cells reserved.</span>
-      <span>Status: <span style="color:#61c454;">●</span> Mostly operational</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
     </div>
   </div>
 </footer>

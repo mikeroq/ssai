@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Status — SSaI™</title>
+<meta name="description" content="Mostly operational. Some yellow." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">S</span><span>SSaI<sup>™</sup></span></a>
+    <nav class="nav-links">
+      <a href="index.html#tenets">Tenets</a>
+      <a href="index.html#math">Mathematics</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero hero-grid">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span>›</span>Status</div>
+    <span class="eyebrow"><span class="dot"></span> Live · refreshes when someone opens the sheet</span>
+    <h1>Status: <span style="color:var(--green-700)">mostly operational.</span></h1>
+    <p class="sub">A real-time view of every system SSaI depends on. Sources: the sheet, a Slack channel, and Theo's gut. Polled every 60 seconds (when he remembers).</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+
+    <div class="status-banner">
+      <div class="pulse"></div>
+      <div>
+        <h3>All core systems operational.</h3>
+        <p>Last verified by an actual human (Theo) — 4 minutes ago. Next scheduled glance: when Theo gets back from lunch.</p>
+      </div>
+    </div>
+
+    <h3 style="margin: 32px 0 14px; font-size: 18px;">Core systems</h3>
+    <div class="status-list">
+
+      <div class="status-row">
+        <div class="name">Primary Sheet (Users)<small>The source of truth. Treat with respect.</small></div>
+        <div class="state ok"><span class="d"></span> Operational</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Orders Sheet<small>Linked via IMPORTRANGE to the Users sheet.</small></div>
+        <div class="state ok"><span class="d"></span> Operational</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Apps Script Webhook<small>Outbound triggers to Zapier and beyond.</small></div>
+        <div class="state warn"><span class="d"></span> Degraded</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i class="w"></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Zapier integration<small>Glues every system to every other system.</small></div>
+        <div class="state warn"><span class="d"></span> Elevated latency</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i><i class="w"></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Conditional Formatting Engine<small>Runs in your browser. Status reflects user devices.</small></div>
+        <div class="state ok"><span class="d"></span> Operational</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Slack — #nobody-sort<small>Our concurrency control system.</small></div>
+        <div class="state ok"><span class="d"></span> Operational</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Mom (Margaret K.)<small>Authoritative human QA. Office hours vary.</small></div>
+        <div class="state ok"><span class="d"></span> Available</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="status-row">
+        <div class="name">Postgres replica<small>Provisioned in 2023. Never used. Just in case.</small></div>
+        <div class="state ok"><span class="d"></span> Operational (unused)</div>
+        <div class="uptime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+    </div>
+
+    <h3 style="margin: 48px 0 14px; font-size: 18px;">Recent incidents</h3>
+
+    <div class="incident">
+      <div class="date">2026-05-14 · 11:42 AM PT</div>
+      <h4>Users sheet briefly sorted alphabetically</h4>
+      <div class="log">
+        <span class="t">11:42</span> A junior analyst pressed <code>Data → Sort A→Z</code> on column B.<br/>
+        <span class="t">11:42</span> Payroll calculations now reference incorrect rows.<br/>
+        <span class="t">11:43</span> <span class="bad">Multiple downstream sheets reporting NaN.</span><br/>
+        <span class="t">11:44</span> Naomi posts in #nobody-sort: "Did someone — please — sort the Users sheet?"<br/>
+        <span class="t">11:45</span> Confession received via DM.<br/>
+        <span class="t">11:46</span> Theo executes Ctrl+Z, 14 times.<br/>
+        <span class="t">11:47</span> <span class="ok">Resolved.</span> No customer impact. One soul slightly diminished.
+      </div>
+    </div>
+
+    <div class="incident">
+      <div class="date">2026-04-22 · 03:18 PM PT</div>
+      <h4>IMPORTRANGE failure across three sheets</h4>
+      <div class="log">
+        <span class="t">15:18</span> A customer revoked sharing on a source sheet without warning.<br/>
+        <span class="t">15:18</span> Three downstream sheets begin returning <code>#REF!</code>.<br/>
+        <span class="t">15:21</span> The CFO of an enterprise customer notices and panics.<br/>
+        <span class="t">15:23</span> Theo emails the customer asking them to please re-share.<br/>
+        <span class="t">16:02</span> Customer re-shares. Cells repopulate gradually.<br/>
+        <span class="t">16:04</span> <span class="ok">Resolved.</span> Postmortem filed in <code>_incidents</code>.
+      </div>
+    </div>
+
+    <div class="incident">
+      <div class="date">2026-03-08 · 09:03 AM PT</div>
+      <h4>Column renamed in production without coordination</h4>
+      <div class="log">
+        <span class="t">09:03</span> A team lead renames column F from <code>plan</code> to <code>plan_v2</code>.<br/>
+        <span class="t">09:03</span> Apps Script triggers begin to fail silently.<br/>
+        <span class="t">09:11</span> Downstream Slack notifications stop firing.<br/>
+        <span class="t">09:23</span> An engineer notices the absence of alerts. Investigates.<br/>
+        <span class="t">09:35</span> Column renamed back. Triggers resume.<br/>
+        <span class="t">09:36</span> <span class="ok">Resolved.</span> Lessons: see Tenet II.
+      </div>
+    </div>
+
+    <div class="incident">
+      <div class="date">2026-01-31 · 11:59 PM PT</div>
+      <h4>End-of-month formula edited live</h4>
+      <div class="log">
+        <span class="t">23:59</span> A junior ops associate updates a SUMIF formula in cell H247.<br/>
+        <span class="t">23:59</span> The new formula references a tab that was archived in October.<br/>
+        <span class="t">00:00</span> Monthly revenue report generates with value: <code>$0</code>.<br/>
+        <span class="t">00:14</span> CFO reaches out, calmly, asking for clarification.<br/>
+        <span class="t">00:42</span> Formula reverted. Revenue restored.<br/>
+        <span class="t">00:43</span> <span class="ok">Resolved.</span> CFaC review added to roadmap.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="tight" style="background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+  <div class="container-narrow prose">
+    <h2>Uptime philosophy</h2>
+    <p>SSaI does not compute uptime in the traditional sense. We define "up" as: <em>at least one editor is able to load the primary sheet within 10 seconds.</em> We define "down" as: <em>nobody can.</em></p>
+    <p>By this definition, our trailing-90-day uptime is <strong>99.91%</strong>. The 0.09% downtime corresponds to the moment Google Sheets had a regional outage in 2024 and we, like everyone else, had to wait it out.</p>
+    <p>We commit to no SLA. We commit only to <em>genuine attention.</em></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:white;"><span class="brand-mark">S</span><span style="color:white;">SSaI<sup style="color:#8b97a8;">™</sup></span></div>
+        <p style="max-width: 360px; margin-top: 12px; font-size: 14px;">Democratizing Enterprise Infrastructure Through Collaborative Cells™. Built for speed. Held together by hope.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="index.html#tenets">Tenets</a></li><li><a href="index.html#math">Mathematics</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="get-started.html">Get started</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="whitepaper.html">Whitepaper (1 tab)</a></li><li><a href="index.html#journey">Migration journey</a></li><li><a href="cell-driven-design.html">Cell-Driven Design</a></li><li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers (volunteers)</a></li><li><a href="press.html">Press</a></li><li><a href="contact.html">Contact (DM the founder)</a></li></ul></div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 SSaI Inc. All cells reserved.</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">SSaI is a satirical concept. Any resemblance to your current production system is coincidental, sincere, and probably accurate.</div>
+
+</body>
+</html>

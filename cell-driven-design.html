@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cell-Driven Design (CDD) — SSaI™</title>
+<meta name="description" content="The methodology that replaces TDD, BDD, and DDD with conditional formatting and one shared link." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">S</span><span>SSaI<sup>™</sup></span></a>
+    <nav class="nav-links">
+      <a href="index.html#tenets">Tenets</a>
+      <a href="index.html#math">Mathematics</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero hero-grid">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span>›</span>Resources<span>›</span>Cell-Driven Design</div>
+    <span class="eyebrow"><span class="dot"></span> Methodology · CDD</span>
+    <h1>Cell-Driven Design.<br/>The methodology your <span style="color:var(--green-700)">CFO already follows.</span></h1>
+    <p class="sub">CDD is a software development methodology in which the cell — not the function, not the class, not the service — is the fundamental unit of business logic. The cell is testable, observable, and addressable. Everything else is, frankly, an abstraction.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container-narrow prose">
+    <h2>The argument</h2>
+    <p>
+      Software methodology has, for forty years, debated where the locus of correctness should live. Test-Driven Development put it in the test. Behavior-Driven Development put it in the scenario. Domain-Driven Design put it in the aggregate. We propose the next, natural step: <strong>put it in the cell.</strong>
+    </p>
+    <blockquote>The cell is the only unit of computation in business software that every stakeholder can read, write, and trust simultaneously.</blockquote>
+    <p>
+      In Cell-Driven Design, the cell is:
+    </p>
+    <ul>
+      <li><strong>Addressable.</strong> <code>Users!B14</code> is a permanent, stable identifier.</li>
+      <li><strong>Observable.</strong> Its value is visible. Its formula is inspectable. Its history is in the version log.</li>
+      <li><strong>Composable.</strong> Cells reference cells. The dependency graph is automatic.</li>
+      <li><strong>Testable.</strong> A green cell with conditional formatting <code>=A1=B1</code> is a passing assertion.</li>
+      <li><strong>Auditable.</strong> Every edit has a name, a timestamp, and (sometimes) a comment.</li>
+    </ul>
+
+    <h2>The five principles of CDD</h2>
+
+    <h3>1. The cell is the test.</h3>
+    <p>If a cell turns green, the test passed. If it turns red, the test failed. If it stays white, your conditional formatting is broken — but that, too, is information.</p>
+    <pre><span class="c">// Conventional TDD</span>
+test(<span class="s">'user is active'</span>, () =&gt; {
+  expect(user.status).toBe(<span class="s">'active'</span>);
+});
+
+<span class="c">// CDD equivalent</span>
+<span class="k">conditional_format</span>: <span class="k">if</span> Users!E2 = <span class="s">"active"</span> <span class="k">then</span> green <span class="k">else</span> red</pre>
+
+    <h3>2. The formula is the function.</h3>
+    <p>Every cell that contains a formula is a pure function from its references to its value. The formula is the spec. The formula is the implementation. The formula is the documentation. Migrating between layers is a non-issue.</p>
+
+    <h3>3. The reference is the API.</h3>
+    <p>Other systems consume your data by <em>referencing your cells</em>. <code>=IMPORTRANGE()</code> is your public API. Versioning is achieved by adding a column.</p>
+
+    <h3>4. The tab is the bounded context.</h3>
+    <p>In CDD, the equivalent of a DDD aggregate is a tab. Users live on the Users tab. Orders live on the Orders tab. Joining them is a deliberate, named operation. The tab boundary protects your domain.</p>
+
+    <h3>5. The link is the deployment.</h3>
+    <p>To ship a feature in CDD, you change the cells. The change is live the moment you press Enter. Rollback is <em>Ctrl-Z</em>. CI/CD is the version history pane.</p>
+
+    <h2>How CDD compares</h2>
+    <figure>
+      <table class="sheet" role="presentation">
+        <thead>
+          <tr><th>methodology</th><th>unit</th><th>test</th><th>deploy</th><th>rollback</th><th>onboarding</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TDD</td><td>function</td><td>assert()</td><td>CI pipeline</td><td>git revert</td><td>weeks</td></tr>
+          <tr><td>BDD</td><td>scenario</td><td>Given/When/Then</td><td>CI pipeline</td><td>git revert</td><td>weeks</td></tr>
+          <tr><td>DDD</td><td>aggregate</td><td>integration test</td><td>service deploy</td><td>roll forward</td><td>months</td></tr>
+          <tr><td><strong>CDD</strong></td><td><strong>cell</strong></td><td><strong>conditional fmt</strong></td><td><strong>Enter key</strong></td><td><strong>Ctrl-Z</strong></td><td><strong>minutes</strong></td></tr>
+        </tbody>
+      </table>
+      <figcaption>Comparative methodology table. Onboarding times based on internal SSaI survey, n=142.</figcaption>
+    </figure>
+
+    <h2>Case study: a CRM rebuilt in CDD</h2>
+    <p>
+      In 2023, Tarpit AI replaced their commercial CRM with a CDD-native implementation. The new system consisted of 4 tabs, 18 named ranges, and one Slack channel called <code>#sheet-watch</code>.
+    </p>
+    <p>
+      Key metrics, six months in:
+    </p>
+    <ul>
+      <li>Time to ship a new field: <strong>3 seconds</strong> (down from 2 weeks)</li>
+      <li>Time to onboard a new sales rep: <strong>0 minutes</strong> (they already knew Sheets)</li>
+      <li>Bugs introduced by junior staff: <strong>up 400%</strong> (acknowledged)</li>
+      <li>Net Promoter Score among internal users: <strong>+62</strong> (extremely high)</li>
+      <li>Net Promoter Score among the auditor: <strong>−98</strong> (lowest possible)</li>
+    </ul>
+    <p>Trade-offs were made. So is the case with every methodology.</p>
+
+    <h2>Adopting CDD</h2>
+    <p>
+      We recommend the following sequence:
+    </p>
+    <ol>
+      <li>Identify a low-stakes domain. (We suggest internal tooling, not payroll.)</li>
+      <li>Open a new sheet. Title it precisely.</li>
+      <li>Define your tabs as bounded contexts. Lock the schema (column headers) for at least one week.</li>
+      <li>Write your business logic in formulas. Resist the urge to escape into Apps Script.</li>
+      <li>Define conditional formatting rules <em>before</em> you populate the data. These are your tests.</li>
+      <li>Share the link. The link is the deployment.</li>
+    </ol>
+
+    <h2>Frequently raised objections</h2>
+    <p><strong>"This doesn't scale."</strong> Correct. It is not designed to. See <a href="index.html#journey">the migration journey</a>.</p>
+    <p><strong>"This has no type safety."</strong> Conditional formatting <em>is</em> the type system. A red cell is a type error.</p>
+    <p><strong>"This is not auditable."</strong> Google Sheets keeps a full version history with named authors back to the creation of the document. We invite you to find a Postgres deployment that does this by default.</p>
+    <p><strong>"This is not really a methodology."</strong> Neither was BDD until people wrote books about it.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="cta">
+      <h2>Stop testing your code. Start formatting it.</h2>
+      <p>Adopt CDD on your next project. The first 90 days are easy.</p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a href="get-started.html" class="btn btn-primary">Start a CDD project →</a>
+        <a href="conditional-formatting-as-code.html" class="btn btn-ghost">Read the companion: CFaC</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:white;"><span class="brand-mark">S</span><span style="color:white;">SSaI<sup style="color:#8b97a8;">™</sup></span></div>
+        <p style="max-width: 360px; margin-top: 12px; font-size: 14px;">Democratizing Enterprise Infrastructure Through Collaborative Cells™. Built for speed. Held together by hope.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="index.html#tenets">Tenets</a></li><li><a href="index.html#math">Mathematics</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="get-started.html">Get started</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="whitepaper.html">Whitepaper (1 tab)</a></li><li><a href="index.html#journey">Migration journey</a></li><li><a href="cell-driven-design.html">Cell-Driven Design</a></li><li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers (volunteers)</a></li><li><a href="press.html">Press</a></li><li><a href="contact.html">Contact (DM the founder)</a></li></ul></div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 SSaI Inc. All cells reserved.</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">SSaI is a satirical concept. Any resemblance to your current production system is coincidental, sincere, and probably accurate.</div>
+
+</body>
+</html>

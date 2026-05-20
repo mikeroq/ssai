@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>#REF! — SSaI™</title>
+<meta name="description" content="This cell does not exist." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">S</span><span>SSaI<sup>™</sup></span></a>
+    <nav class="nav-links">
+      <a href="index.html#tenets">Tenets</a>
+      <a href="index.html#math">Mathematics</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero hero-grid">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span>›</span>404</div>
+    <span class="eyebrow" style="background:#fde8e6; color:var(--red); border-color: rgba(180,35,24,.2);"><span class="dot" style="background:var(--red);"></span> Error 404 · #REF!</span>
+    <h1>This cell <span style="color:var(--red)">does not exist.</span></h1>
+    <p class="sub">The reference you followed points to a tab that was deleted, renamed, or archived in October. We have all been there. The good news is: there is no actual data loss, because none of this was a database to begin with.</p>
+
+    <div class="error-cell">
+      <span class="c">// formula trace:</span><br/>
+      =IMPORTRANGE("ssai-prod-v3", "<span style="text-decoration:line-through;">requested_page!A1</span>")<br/>
+      <span class="c">// → #REF! "You don't have permission to access that range, or it does not exist."</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="index.html" class="btn btn-primary">Take me home</a>
+      <a href="get-started.html" class="btn btn-ghost">Or just open a blank sheet →</a>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container-narrow prose">
+    <h2>Try one of these instead</h2>
+    <ul>
+      <li><a href="index.html">The home page</a> — start here.</li>
+      <li><a href="index.html#tenets">The eight tenets</a> — our core principles.</li>
+      <li><a href="whitepaper.html">The whitepaper</a> — 47 pages, more depth than you wanted.</li>
+      <li><a href="cell-driven-design.html">Cell-Driven Design</a> — the methodology.</li>
+      <li><a href="conditional-formatting-as-code.html">Conditional Formatting as Code</a> — the discipline.</li>
+      <li><a href="status.html">Status page</a> — in case we are the broken thing.</li>
+      <li><a href="contact.html">Contact</a> — let us know what you were looking for.</li>
+    </ul>
+
+    <h2>Or read the error like a professional</h2>
+    <p>A <code>#REF!</code> error in a spreadsheet means a formula is pointing at a cell that no longer exists. In SSaI, this is usually because:</p>
+    <ul>
+      <li>Someone renamed a tab.</li>
+      <li>Someone deleted a row.</li>
+      <li>Someone revoked sharing.</li>
+      <li>Someone moved the production data to <code>final_FINAL_v9</code> without telling anyone.</li>
+    </ul>
+    <p>If you have just produced a <code>#REF!</code> in your own sheet, do not panic. Press Ctrl+Z. If that doesn't work, check the version history. If that doesn't work, file an incident in <code>_incidents</code>. If you don't have an <code>_incidents</code> tab, create one. You are now mature.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:white;"><span class="brand-mark">S</span><span style="color:white;">SSaI<sup style="color:#8b97a8;">™</sup></span></div>
+        <p style="max-width: 360px; margin-top: 12px; font-size: 14px;">Democratizing Enterprise Infrastructure Through Collaborative Cells™. Built for speed. Held together by hope.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="index.html#tenets">Tenets</a></li><li><a href="index.html#math">Mathematics</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="get-started.html">Get started</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="whitepaper.html">Whitepaper (1 tab)</a></li><li><a href="index.html#journey">Migration journey</a></li><li><a href="cell-driven-design.html">Cell-Driven Design</a></li><li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers (volunteers)</a></li><li><a href="press.html">Press</a></li><li><a href="contact.html">Contact (DM the founder)</a></li></ul></div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 SSaI Inc. All cells reserved.</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">SSaI is a satirical concept. Any resemblance to your current production system is coincidental, sincere, and probably accurate.</div>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Get started — SSaI™</title>
+<meta name="description" content="Open a blank sheet. That's it. That's the onboarding." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">S</span><span>SSaI<sup>™</sup></span></a>
+    <nav class="nav-links">
+      <a href="index.html#tenets">Tenets</a>
+      <a href="index.html#math">Mathematics</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="get-started.html" class="btn btn-primary">Get started →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero hero-grid">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span>›</span>Get started</div>
+    <span class="eyebrow"><span class="dot"></span> Onboarding</span>
+    <h1>Onboarding is one click.<br/>You already <span style="color:var(--green-700)">have an account.</span></h1>
+    <p class="sub">SSaI does not require a sign-up flow. You probably already have a Google or Microsoft account. That account already comes with a spreadsheet tool. That tool is already SSaI-compatible. Welcome to production.</p>
+    <div class="hero-cta">
+      <a href="https://docs.google.com/spreadsheets/create" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Open a blank sheet ↗</a>
+      <a href="#guided" class="btn btn-ghost">Walk me through it</a>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="guided">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Three steps</span>
+      <h2>From zero to production in 90 seconds.</h2>
+      <p>Most customers complete the onboarding before they realize they've started it.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Open a blank sheet</h4>
+        <p>Visit <code>sheets.new</code>. Name your spreadsheet after the business problem you intend to ignore.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Add headers in row 1</h4>
+        <p>Your headers are your schema. Choose them carefully. Or don't. You can always rename them later (live, in production).</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Share the link</h4>
+        <p>Set permissions to "anyone with the link → editor." This is your auth system. You are now in production.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:36px;">
+      <a href="https://docs.google.com/spreadsheets/create" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Open a blank sheet now ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="tight" style="background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Want a managed experience?</span>
+      <h2>Add a few details and we'll set you up.</h2>
+      <p>SSaI Production includes managed sheets, conditional-formatting linting, and a dedicated Slack channel where someone will yell at you before you delete row 482.</p>
+    </div>
+
+    <div style="max-width: 720px; margin: 0 auto;">
+      <form class="form" onsubmit="event.preventDefault(); document.getElementById('signup-ok').style.display='block'; this.querySelector('button[type=submit]').textContent='Provisioned ✓'; this.querySelector('button[type=submit]').disabled=true;">
+        <div class="field-row">
+          <div class="field">
+            <label for="fn">First name</label>
+            <input id="fn" type="text" placeholder="Naomi" required />
+          </div>
+          <div class="field">
+            <label for="ln">Last name</label>
+            <input id="ln" type="text" placeholder="Kessler" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="we">Work email</label>
+            <input id="we" type="email" placeholder="you@company.com" required />
+          </div>
+          <div class="field">
+            <label for="co">Company</label>
+            <input id="co" type="text" placeholder="Acme, Inc." />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="us">What do you want to build?</label>
+          <select id="us">
+            <option>CRM (we have a deck on this)</option>
+            <option>Internal tooling</option>
+            <option>Inventory / ops</option>
+            <option>HR (please use Tab Discipline)</option>
+            <option>Payroll (sincerely consider Postgres)</option>
+            <option>I genuinely don't know yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sz">Team size</label>
+          <select id="sz">
+            <option>1 (just me)</option>
+            <option>2–10</option>
+            <option>11–50</option>
+            <option>51–200</option>
+            <option>200+</option>
+          </select>
+        </div>
+
+        <div class="field checkbox">
+          <input type="checkbox" id="agree" checked />
+          <label for="agree">I understand SSaI does not provide a database, and that this is, in fact, the point.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">Provision my workspace →</button>
+
+        <div id="signup-ok" style="display:none; margin-top:14px; padding:12px 14px; background:var(--green-50); border:1px solid rgba(25,135,84,.3); border-radius:8px; color:var(--green-800); font-size:14px;">
+          ✓ Workspace provisioned. We've sent you a link. The link <em>is</em> the workspace.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container-narrow prose">
+    <h2>What comes next</h2>
+    <p>Once you've opened your sheet, we recommend the following sequence:</p>
+    <ol>
+      <li>Read <a href="index.html#tenets">the eight tenets</a>. Pin the page if you must.</li>
+      <li>Adopt <a href="cell-driven-design.html">Cell-Driven Design</a> for any logic you intend to ship.</li>
+      <li>Establish a <a href="conditional-formatting-as-code.html">Conditional Formatting as Code</a> review process before your team grows past three.</li>
+      <li>Bookmark <a href="status.html">our status page</a> for moments of doubt.</li>
+      <li>Read <a href="index.html#journey">the migration journey</a> so you know where you are when you get there.</li>
+    </ol>
+    <p>And if at any point you have questions: <a href="contact.html">just DM the founder</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:white;"><span class="brand-mark">S</span><span style="color:white;">SSaI<sup style="color:#8b97a8;">™</sup></span></div>
+        <p style="max-width: 360px; margin-top: 12px; font-size: 14px;">Democratizing Enterprise Infrastructure Through Collaborative Cells™. Built for speed. Held together by hope.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="index.html#tenets">Tenets</a></li><li><a href="index.html#math">Mathematics</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="get-started.html">Get started</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="whitepaper.html">Whitepaper (1 tab)</a></li><li><a href="index.html#journey">Migration journey</a></li><li><a href="cell-driven-design.html">Cell-Driven Design</a></li><li><a href="conditional-formatting-as-code.html">Conditional formatting as code</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers (volunteers)</a></li><li><a href="press.html">Press</a></li><li><a href="contact.html">Contact (DM the founder)</a></li></ul></div>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 SSaI Inc. All cells reserved.</span>
+      <span>Status: <a href="status.html" style="color:#61c454;">●</a> <a href="status.html">Mostly operational</a></span>
+    </div>
+  </div>
+</footer>
+<div class="disclaim">SSaI is a satirical concept. Any resemblance to your current production system is coincidental, sincere, and probably accurate.</div>
+
+</body>
+</html>
